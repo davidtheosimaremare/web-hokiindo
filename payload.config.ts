@@ -44,8 +44,8 @@ export default buildConfig({
       collections: {
         media: {
           generateFileURL: ({ filename, prefix }) => {
-            const endpoint = process.env.MINIO_ENDPOINT || 'https://assets.hokiindo.co.id'
-            const bucket = process.env.MINIO_BUCKET || 'hokiindo'
+            const endpoint = 'https://assets.hokiindo.co.id'
+            const bucket = 'hokiindo'
             return `${endpoint}/${bucket}/${prefix ? `${prefix}/` : ''}${filename}`
           },
         },
