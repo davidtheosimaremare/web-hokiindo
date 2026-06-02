@@ -6,7 +6,7 @@ export const Media: CollectionConfig = {
     read: () => true, // Anyone can see media
   },
   upload: {
-    staticDir: 'public/media',
+    // staticDir removed — files are stored in MinIO S3
     adminThumbnail: 'thumbnail',
     imageSizes: [
       {
