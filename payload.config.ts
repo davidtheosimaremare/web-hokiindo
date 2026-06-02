@@ -22,6 +22,13 @@ import { NewsPage } from './globals/NewsPage'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const getEnv = (key: string, fallback: string = '') => {
+  if (typeof process !== 'undefined' && process.env) {
+    return process.env[key] || fallback
+  }
+  return fallback
+}
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -30,13 +37,13 @@ export default buildConfig({
   collections: [Users, Media, News, Projects, Careers],
   globals: [Profile, Beranda, About, ProjectsPage, CareersPage, ContactPage, NewsPage],
   editor: lexicalEditor({}),
-  secret: process.env.PAYLOAD_SECRET || 'fallback-secret',
+  secret: getEnv('PAYLOAD_SECRET', 'fallback-secret'),
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || '',
+      connectionString: getEnv('DATABASE_URI'),
     },
   }),
   plugins: [
@@ -50,12 +57,12 @@ export default buildConfig({
           },
         },
       },
-      bucket: process.env.MINIO_BUCKET || 'hokiindo',
+      bucket: getEnv('MINIO_BUCKET', 'hokiindo'),
       config: {
-        endpoint: process.env.MINIO_ENDPOINT || 'https://assets.hokiindo.co.id',
+        endpoint: getEnv('MINIO_ENDPOINT', 'https://assets.hokiindo.co.id'),
         credentials: {
-          accessKeyId: process.env.MINIO_ACCESS_KEY || '',
-          secretAccessKey: process.env.MINIO_SECRET_KEY || '',
+          accessKeyId: getEnv('MINIO_ACCESS_KEY'),
+          secretAccessKey: getEnv('MINIO_SECRET_KEY'),
         },
         region: 'us-east-1', // MinIO requires a region, us-east-1 is the default
         forcePathStyle: true, // Required for MinIO compatibility
