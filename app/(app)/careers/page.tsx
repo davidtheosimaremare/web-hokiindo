@@ -219,7 +219,7 @@ export default async function CareersPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {cultureValues.map((val) => (
+              {cultureValues.map((val: any) => (
                 <div
                   key={val.title}
                   className="glass-panel rounded-[2rem] p-8 md:p-10 hover:card-shadow-hover transition-shadow duration-300 border border-white/40"

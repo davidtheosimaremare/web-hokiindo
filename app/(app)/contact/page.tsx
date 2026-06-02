@@ -188,7 +188,7 @@ export default async function ContactPage() {
                           {card.lines.join("\n")}
                         </p>
                       )}
-                      {card.links.map((link) => (
+                      {card.links.map((link: any) => (
                         <a
                           key={link.href}
                           href={link.href}
