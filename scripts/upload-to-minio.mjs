@@ -16,7 +16,7 @@ const __dirname = path.dirname(__filename)
 const MINIO_ENDPOINT = process.env.MINIO_ENDPOINT || 'https://assets.hokiindo.co.id'
 const MINIO_ACCESS_KEY = process.env.MINIO_ACCESS_KEY || 'admin'
 const MINIO_SECRET_KEY = process.env.MINIO_SECRET_KEY || 'hokiindojaya123@'
-const MINIO_BUCKET = process.env.MINIO_BUCKET || 'shop'
+const MINIO_BUCKET = process.env.MINIO_BUCKET || 'hokiindo'
 
 const s3 = new S3Client({
   endpoint: MINIO_ENDPOINT,

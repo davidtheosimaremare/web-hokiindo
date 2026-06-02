@@ -44,7 +44,7 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      bucket: process.env.MINIO_BUCKET || 'shop',
+      bucket: process.env.MINIO_BUCKET || 'hokiindo',
       config: {
         endpoint: process.env.MINIO_ENDPOINT || 'https://assets.hokiindo.co.id',
         credentials: {
