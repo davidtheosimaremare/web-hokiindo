@@ -6,6 +6,8 @@ import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const revalidate = 60;
+
 export async function generateMetadata(): Promise<Metadata> {
   const payload = await getPayload({ config: configPromise });
   const profile = await payload.findGlobal({
