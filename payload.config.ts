@@ -42,7 +42,13 @@ export default buildConfig({
   plugins: [
     s3Storage({
       collections: {
-        media: true,
+        media: {
+          generateFileURL: ({ filename, prefix }) => {
+            const endpoint = process.env.MINIO_ENDPOINT || 'https://assets.hokiindo.co.id'
+            const bucket = process.env.MINIO_BUCKET || 'hokiindo'
+            return `${endpoint}/${bucket}/${prefix ? `${prefix}/` : ''}${filename}`
+          },
+        },
       },
       bucket: process.env.MINIO_BUCKET || 'hokiindo',
       config: {
