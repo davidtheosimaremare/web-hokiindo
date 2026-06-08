@@ -157,6 +157,12 @@ export const Beranda: GlobalConfig = {
           defaultValue: 'Menghadirkan keandalan tinggi dan teknik modern untuk memastikan keamanan maksimal pada infrastruktur industri Anda. Produk Siemens dirancang untuk efisiensi dan performa tanpa kompromi.',
         },
         {
+          name: 'proteksiHeroImage',
+          type: 'upload',
+          relationTo: 'media',
+          admin: { hidden: true },
+        },
+        {
           name: 'proteksiHeroVideo',
           label: 'Proteksi - Video Utama',
           type: 'upload',
