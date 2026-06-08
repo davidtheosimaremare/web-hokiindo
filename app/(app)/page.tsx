@@ -19,11 +19,7 @@ export const dynamic = 'force-dynamic';
  * Cascades configured data down to the individual section components.
  */
 export default async function HomePage() {
-  const env = process.env as any;
-  const originalEnv = env.NODE_ENV;
-  env.NODE_ENV = 'development';
   const payload = await getPayload({ config: configPromise });
-  env.NODE_ENV = originalEnv;
 
   const beranda = await payload.findGlobal({
     slug: "beranda",
