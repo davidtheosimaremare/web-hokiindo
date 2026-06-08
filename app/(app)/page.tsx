@@ -10,6 +10,8 @@ import NewsSection from "@/components/home/NewsSection";
 import { getPayload } from "payload";
 import configPromise from "@/payload.config";
 
+export const dynamic = 'force-dynamic';
+
 /**
  * Home Page — PT Hokiindo Raya
  *
@@ -63,7 +65,9 @@ export default async function HomePage() {
         <SiemensSection
           heading={solusiSiemens?.proteksiHeading}
           description={solusiSiemens?.proteksiDescription}
-          heroImage={solusiSiemens?.proteksiHeroImage}
+          heroVideo={solusiSiemens?.proteksiHeroVideo}
+          catalogLink={solusiSiemens?.proteksiCatalogLink}
+          contactLink={solusiSiemens?.proteksiContactLink}
           products={solusiSiemens?.proteksiProducts}
         />
 

@@ -10,7 +10,9 @@ export interface SiemensProduct {
 interface SiemensSectionProps {
   heading?: string;
   description?: string;
-  heroImage?: string | { url?: string };
+  heroVideo?: string | { url?: string };
+  catalogLink?: string;
+  contactLink?: string;
   products?: SiemensProduct[];
 }
 
@@ -41,26 +43,28 @@ const defaultProducts: SiemensProduct[] = [
   },
 ];
 
-const defaultHeroImage =
-  "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=900&q=80";
+const defaultHeroVideo =
+  "https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_25fps.mp4"; // Placeholder factory video
 
 export default function SiemensSection({
   heading,
   description,
   products,
-  heroImage,
+  heroVideo,
+  catalogLink,
+  contactLink,
 }: SiemensSectionProps) {
   const activeProducts = products && products.length > 0 ? products : defaultProducts;
-  const activeHeroImage = heroImage || defaultHeroImage;
+  const activeHeroVideo = heroVideo || defaultHeroVideo;
   const activeHeading = heading || "Solusi Proteksi Siemens";
   const activeDescription =
     description ||
     "Menghadirkan keandalan tinggi dan teknik modern untuk memastikan keamanan maksimal pada infrastruktur industri Anda. Produk Siemens dirancang untuk efisiensi dan performa tanpa kompromi.";
 
   const finalHeroSrc =
-    typeof activeHeroImage === "object" && activeHeroImage
-      ? activeHeroImage.url || ""
-      : activeHeroImage;
+    typeof activeHeroVideo === "object" && activeHeroVideo
+      ? activeHeroVideo.url || ""
+      : activeHeroVideo;
 
   return (
     <section
@@ -83,30 +87,16 @@ export default function SiemensSection({
               {activeDescription}
             </p>
 
-            {/* Stats Row */}
-            <div className="flex gap-8 mb-10">
-              {[
-                { value: "500+", label: "Produk tersedia" },
-                { value: "15+", label: "Tahun pengalaman" },
-                { value: "99.9%", label: "Keandalan sistem" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="font-bold text-2xl text-primary">{stat.value}</span>
-                  <span className="text-sm text-[#603e39] mt-1">{stat.label}</span>
-                </div>
-              ))}
-            </div>
-
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/products/siemens-protection"
+                href={catalogLink || "/products/siemens-protection"}
                 id="siemens-cta-catalog"
                 className="btn-primary"
               >
                 Lihat Katalog
               </Link>
               <Link
-                href="/contact"
+                href={contactLink || "/contact"}
                 id="siemens-cta-specialist"
                 className="btn-outline"
               >
@@ -115,13 +105,15 @@ export default function SiemensSection({
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Video */}
           <div className="lg:w-1/2 w-full">
             <div className="relative aspect-video rounded-[3rem] overflow-hidden premium-shadow group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <video
                 src={finalHeroSrc}
-                alt="Siemens electrical protection products"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
               />
               {/* Siemens Overlay Badge */}
