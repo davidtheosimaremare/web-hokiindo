@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload'
+import type { GlobalConfig } from 'payload'
 
 export const About: GlobalConfig = {
   slug: 'about',

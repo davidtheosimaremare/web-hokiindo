@@ -1,4 +1,4 @@
-import { GlobalConfig } from 'payload'
+import type { GlobalConfig } from 'payload'
 
 export const Beranda: GlobalConfig = {
   slug: 'beranda',

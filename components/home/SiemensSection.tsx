@@ -75,11 +75,11 @@ export default function SiemensSection({
           <div className="lg:w-1/2">
             <h2
               id="siemens-heading"
-              className="font-bold text-[36px] md:text-[48px] leading-tight text-[#131b2e] mb-6"
+              className="font-bold text-[28px] md:text-[36px] leading-tight text-[#131b2e] mb-6"
             >
               {activeHeading}
             </h2>
-            <p className="text-[#603e39] text-lg leading-relaxed mb-8 max-w-xl">
+            <p className="text-[#603e39] text-base leading-relaxed mb-8 max-w-xl">
               {activeDescription}
             </p>
 
