@@ -164,7 +164,7 @@ export default function SiemensSection({
                 <h3 className="font-bold text-xl text-[#131b2e] mb-1.5 group-hover:text-primary transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-[#603e39] text-sm line-clamp-2 leading-relaxed">
+                <p className="text-[#603e39] text-sm leading-relaxed">
                   {product.description}
                 </p>
               </div>
