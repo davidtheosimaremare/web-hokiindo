@@ -5,6 +5,7 @@ export interface SiemensProduct {
   name: string;
   description: string;
   image: string | { url?: string };
+  link?: string;
 }
 
 interface SiemensSectionProps {
@@ -13,6 +14,8 @@ interface SiemensSectionProps {
   heroVideo?: string | { url?: string };
   catalogLink?: string;
   contactLink?: string;
+  viewAllLink?: string;
+  viewAllCount?: string | number;
   products?: SiemensProduct[];
 }
 
@@ -53,6 +56,8 @@ export default function SiemensSection({
   heroVideo,
   catalogLink,
   contactLink,
+  viewAllLink,
+  viewAllCount,
 }: SiemensSectionProps) {
   const activeProducts = products && products.length > 0 ? products : defaultProducts;
   const activeHeroVideo = heroVideo || defaultHeroVideo;
@@ -116,28 +121,6 @@ export default function SiemensSection({
                 playsInline
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
               />
-              {/* Siemens Overlay Badge */}
-              <div className="absolute bottom-6 left-6 inline-flex items-center gap-4 px-5 py-4 bg-white/90 backdrop-blur-md border border-[#dae2fd] rounded-2xl premium-shadow w-fit">
-                <div className="w-12 h-12 bg-[#00646e] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span
-                    className="material-symbols-outlined text-white"
-                    style={{ fontSize: "24px" }}
-                  >
-                    verified_user
-                  </span>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[10px] font-bold text-[#603e39] uppercase tracking-widest">
-                    Siemens
-                  </span>
-                  <span className="text-sm font-bold text-[#00646e]">
-                    Authorized Partner
-                  </span>
-                  <span className="text-xs text-[#603e39] mt-0.5">
-                    Best Growth Distributor 2024 & 2025
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -146,7 +129,7 @@ export default function SiemensSection({
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
           {activeProducts.map((product, i) => (
             <Link
-              href={`/products/${product.id || 'siemens-protection'}`}
+              href={product.link || `/products/${product.id || 'siemens-protection'}`}
               key={product.id || `prod-${i}`}
               className="group bg-white overflow-hidden rounded-[2rem] border border-[#eaedff] hover:border-primary transition-all duration-300 card-shadow hover:card-shadow-hover"
             >
@@ -173,7 +156,7 @@ export default function SiemensSection({
 
           {/* "Lihat Semua" CTA Card */}
           <Link
-            href="/products/siemens-protection"
+            href={viewAllLink || "/products/siemens-protection"}
             id="siemens-view-all"
             className="bg-primary rounded-[2rem] flex flex-col items-center justify-center p-8 text-center group cursor-pointer hover:bg-primary/90 transition-all premium-shadow"
           >
@@ -188,7 +171,7 @@ export default function SiemensSection({
             <p className="text-white font-bold text-lg leading-tight">
               Lihat Semua Produk
             </p>
-            <p className="text-white/70 text-xs mt-2">500+ item tersedia</p>
+            <p className="text-white/70 text-xs mt-2">{viewAllCount || "500+"} item tersedia</p>
           </Link>
         </div>
       </div>

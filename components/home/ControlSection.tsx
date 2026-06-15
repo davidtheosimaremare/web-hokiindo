@@ -5,12 +5,17 @@ export interface ControlProduct {
   name: string;
   description: string;
   image: string | { url?: string };
+  link?: string;
 }
 
 interface ControlSectionProps {
   heading?: string;
   description?: string;
   heroImage?: string | { url?: string };
+  catalogLink?: string;
+  contactLink?: string;
+  viewAllLink?: string;
+  viewAllCount?: string | number;
   products?: ControlProduct[];
 }
 
@@ -49,6 +54,10 @@ export default function ControlSection({
   description,
   products,
   heroImage,
+  catalogLink,
+  contactLink,
+  viewAllLink,
+  viewAllCount,
 }: ControlSectionProps) {
   const activeProducts = products && products.length > 0 ? products : defaultProducts;
   const activeHeroImage = heroImage || defaultHeroImage;
@@ -108,14 +117,14 @@ export default function ControlSection({
 
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/products/siemens-control"
+                href={catalogLink || "/products/siemens-control"}
                 id="control-cta-catalog"
                 className="btn-primary"
               >
                 Lihat Katalog
               </Link>
               <Link
-                href="/contact"
+                href={contactLink || "/contact"}
                 id="control-cta-specialist"
                 className="btn-outline"
               >
@@ -156,7 +165,7 @@ export default function ControlSection({
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
           {activeProducts.map((product, i) => (
             <Link
-              href={`/products/${product.id || 'siemens-control'}`}
+              href={product.link || `/products/${product.id || 'siemens-control'}`}
               key={product.id || `prod-${i}`}
               className="group bg-white overflow-hidden rounded-[2rem] border border-[#eaedff] hover:border-primary transition-all duration-300 card-shadow hover:card-shadow-hover"
             >
@@ -174,7 +183,7 @@ export default function ControlSection({
                 <h3 className="font-bold text-xl text-[#131b2e] mb-1.5 group-hover:text-primary transition-colors">
                   {product.name}
                 </h3>
-                <p className="text-[#603e39] text-sm line-clamp-2 leading-relaxed">
+                <p className="text-[#603e39] text-sm leading-relaxed">
                   {product.description}
                 </p>
               </div>
@@ -183,7 +192,7 @@ export default function ControlSection({
 
           {/* "Lihat Semua" CTA Card */}
           <Link
-            href="/products/siemens-control"
+            href={viewAllLink || "/products/siemens-control"}
             id="control-view-all"
             className="bg-primary rounded-[2rem] flex flex-col items-center justify-center p-8 text-center group cursor-pointer hover:bg-primary/90 transition-all premium-shadow"
           >
@@ -198,7 +207,7 @@ export default function ControlSection({
             <p className="text-white font-bold text-lg leading-tight">
               Lihat Semua Produk
             </p>
-            <p className="text-white/70 text-xs mt-2">300+ item tersedia</p>
+            <p className="text-white/70 text-xs mt-2">{viewAllCount || "300+"} item tersedia</p>
           </Link>
         </div>
       </div>
