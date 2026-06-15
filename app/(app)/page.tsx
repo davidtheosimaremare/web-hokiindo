@@ -69,6 +69,7 @@ export default async function HomePage() {
           heroVideo={solusiSiemens?.proteksiHeroVideo}
           catalogLink={solusiSiemens?.proteksiCatalogLink}
           contactLink={solusiSiemens?.proteksiContactLink}
+          viewAllLink={solusiSiemens?.proteksiViewAllLink}
           products={solusiSiemens?.proteksiProducts}
         />
 
@@ -77,6 +78,9 @@ export default async function HomePage() {
           heading={solusiSiemens?.kontrolHeading}
           description={solusiSiemens?.kontrolDescription}
           heroImage={solusiSiemens?.kontrolHeroImage}
+          catalogLink={solusiSiemens?.kontrolCatalogLink}
+          contactLink={solusiSiemens?.kontrolContactLink}
+          viewAllLink={solusiSiemens?.kontrolViewAllLink}
           products={solusiSiemens?.kontrolProducts}
         />
 
