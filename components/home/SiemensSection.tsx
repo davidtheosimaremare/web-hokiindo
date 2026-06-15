@@ -117,18 +117,25 @@ export default function SiemensSection({
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
               />
               {/* Siemens Overlay Badge */}
-              <div className="absolute bottom-6 left-6 flex items-center gap-3 bg-white/90 backdrop-blur-md px-4 py-3 rounded-2xl">
-                <div className="w-10 h-10 bg-[#00646e] rounded-xl flex items-center justify-center">
+              <div className="absolute bottom-6 left-6 inline-flex items-center gap-4 px-5 py-4 bg-white/90 backdrop-blur-md border border-[#dae2fd] rounded-2xl premium-shadow w-fit">
+                <div className="w-12 h-12 bg-[#00646e] rounded-xl flex items-center justify-center flex-shrink-0">
                   <span
                     className="material-symbols-outlined text-white"
-                    style={{ fontSize: "20px" }}
+                    style={{ fontSize: "24px" }}
                   >
                     verified_user
                   </span>
                 </div>
-                <div>
-                  <div className="text-[10px] font-bold text-[#603e39] uppercase tracking-wider">Authorized</div>
-                  <div className="text-sm font-bold text-[#00646e]">Siemens Partner</div>
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-[#603e39] uppercase tracking-widest">
+                    Siemens
+                  </span>
+                  <span className="text-sm font-bold text-[#00646e]">
+                    Authorized Partner
+                  </span>
+                  <span className="text-xs text-[#603e39] mt-0.5">
+                    Best Growth Distributor 2024 & 2025
+                  </span>
                 </div>
               </div>
             </div>
