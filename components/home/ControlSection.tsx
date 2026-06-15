@@ -82,15 +82,6 @@ export default function ControlSection({
         <div className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center mb-16 md:mb-24">
           {/* Text Block */}
           <div className="lg:w-1/2">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-[#00646e] font-semibold text-sm mb-6 border border-[#dae2fd]">
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: "16px" }}
-              >
-                tune
-              </span>
-              <span className="uppercase tracking-wider">Siemens Control Series</span>
-            </div>
             <h2
               id="control-heading"
               className="font-bold text-[28px] md:text-[36px] leading-tight text-[#131b2e] mb-6"
@@ -101,19 +92,7 @@ export default function ControlSection({
               {activeDescription}
             </p>
 
-            {/* Stats Row */}
-            <div className="flex gap-8 mb-10">
-              {[
-                { value: "300+", label: "Varian kontrol" },
-                { value: "IE5", label: "Efisiensi motor" },
-                { value: "24/7", label: "Dukungan teknis" },
-              ].map((stat) => (
-                <div key={stat.label} className="flex flex-col">
-                  <span className="font-bold text-2xl text-primary">{stat.value}</span>
-                  <span className="text-sm text-[#603e39] mt-1">{stat.label}</span>
-                </div>
-              ))}
-            </div>
+
 
             <div className="flex flex-wrap gap-4">
               <Link
