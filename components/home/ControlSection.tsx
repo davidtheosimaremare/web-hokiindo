@@ -11,7 +11,7 @@ export interface ControlProduct {
 interface ControlSectionProps {
   heading?: string;
   description?: string;
-  heroImage?: string | { url?: string };
+  heroImage?: string | { url?: string; mimeType?: string };
   catalogLink?: string;
   contactLink?: string;
   viewAllLink?: string;
@@ -71,6 +71,10 @@ export default function ControlSection({
       ? activeHeroImage.url || ""
       : activeHeroImage;
 
+  const isVideo = typeof activeHeroImage === "object" && activeHeroImage && activeHeroImage.mimeType
+    ? activeHeroImage.mimeType.startsWith("video/")
+    : typeof finalHeroSrc === "string" && finalHeroSrc.match(/\.(mp4|webm|ogg)$/i);
+
   return (
     <section
       id="siemens-control"
@@ -112,15 +116,26 @@ export default function ControlSection({
             </div>
           </div>
 
-          {/* Hero Image */}
+          {/* Hero Image / Video */}
           <div className="lg:w-1/2 w-full">
             <div className="relative aspect-video rounded-[3rem] overflow-hidden premium-shadow group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={finalHeroSrc}
-                alt="Siemens control products — contactor, VFD, soft starter"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-              />
+              {isVideo ? (
+                <video
+                  src={finalHeroSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                />
+              ) : (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={finalHeroSrc}
+                  alt="Siemens control products — contactor, VFD, soft starter"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                />
+              )}
             </div>
           </div>
         </div>

@@ -11,7 +11,7 @@ export interface SiemensProduct {
 interface SiemensSectionProps {
   heading?: string;
   description?: string;
-  heroVideo?: string | { url?: string };
+  heroVideo?: string | { url?: string; mimeType?: string };
   catalogLink?: string;
   contactLink?: string;
   viewAllLink?: string;
@@ -71,6 +71,10 @@ export default function SiemensSection({
       ? activeHeroVideo.url || ""
       : activeHeroVideo;
 
+  const isVideo = typeof activeHeroVideo === "object" && activeHeroVideo && activeHeroVideo.mimeType
+    ? activeHeroVideo.mimeType.startsWith("video/")
+    : typeof finalHeroSrc === "string" && finalHeroSrc.match(/\.(mp4|webm|ogg)$/i);
+
   return (
     <section
       id="siemens-products"
@@ -110,17 +114,26 @@ export default function SiemensSection({
             </div>
           </div>
 
-          {/* Hero Video */}
+          {/* Hero Video / Image */}
           <div className="lg:w-1/2 w-full">
             <div className="relative aspect-video rounded-[3rem] overflow-hidden premium-shadow group">
-              <video
-                src={finalHeroSrc}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
-              />
+              {isVideo ? (
+                <video
+                  src={finalHeroSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                />
+              ) : (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={finalHeroSrc}
+                  alt="Siemens protection products"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                />
+              )}
             </div>
           </div>
         </div>
