@@ -121,21 +121,6 @@ export default function ControlSection({
                 alt="Siemens control products — contactor, VFD, soft starter"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
               />
-              {/* Control badge overlay */}
-              <div className="absolute bottom-6 left-6 flex items-center gap-3 bg-white/90 backdrop-blur-md px-4 py-3 rounded-2xl">
-                <div className="w-10 h-10 bg-[#00646e] rounded-xl flex items-center justify-center">
-                  <span
-                    className="material-symbols-outlined text-white"
-                    style={{ fontSize: "20px" }}
-                  >
-                    settings
-                  </span>
-                </div>
-                <div>
-                  <div className="text-[10px] font-bold text-[#603e39] uppercase tracking-wider">Siemens</div>
-                  <div className="text-sm font-bold text-[#00646e]">Control & Drives</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
