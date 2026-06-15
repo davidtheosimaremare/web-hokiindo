@@ -192,6 +192,11 @@ export const Beranda: GlobalConfig = {
               relationTo: 'media',
               required: true,
             },
+            {
+              name: 'link',
+              label: 'Link Produk (Opsional)',
+              type: 'text',
+            },
           ],
         },
         {
@@ -205,6 +210,18 @@ export const Beranda: GlobalConfig = {
           label: 'Proteksi - Link Kontak',
           type: 'text',
           defaultValue: '/contact',
+        },
+        {
+          name: 'proteksiViewAllLink',
+          label: 'Proteksi - Link Lihat Semua Produk',
+          type: 'text',
+          defaultValue: '/products/siemens-protection',
+        },
+        {
+          name: 'proteksiViewAllCount',
+          label: 'Proteksi - Jumlah Item Lihat Semua',
+          type: 'text',
+          defaultValue: '500+',
         },
         // Kontrol Sub-section
         {
@@ -249,7 +266,36 @@ export const Beranda: GlobalConfig = {
               relationTo: 'media',
               required: true,
             },
+            {
+              name: 'link',
+              label: 'Link Produk (Opsional)',
+              type: 'text',
+            },
           ],
+        },
+        {
+          name: 'kontrolCatalogLink',
+          label: 'Kontrol - Link Katalog',
+          type: 'text',
+          defaultValue: '/products/siemens-control',
+        },
+        {
+          name: 'kontrolContactLink',
+          label: 'Kontrol - Link Kontak',
+          type: 'text',
+          defaultValue: '/contact',
+        },
+        {
+          name: 'kontrolViewAllLink',
+          label: 'Kontrol - Link Lihat Semua Produk',
+          type: 'text',
+          defaultValue: '/products/siemens-control',
+        },
+        {
+          name: 'kontrolViewAllCount',
+          label: 'Kontrol - Jumlah Item Lihat Semua',
+          type: 'text',
+          defaultValue: '300+',
         },
       ],
     },
@@ -319,6 +365,11 @@ export const Beranda: GlobalConfig = {
               type: 'upload',
               relationTo: 'media',
             },
+            {
+              name: 'link',
+              label: 'Link Produk (Opsional)',
+              type: 'text',
+            },
           ],
         },
         // G-Comin Sub-section
@@ -362,6 +413,11 @@ export const Beranda: GlobalConfig = {
               label: 'Gambar Produk (Opsional)',
               type: 'upload',
               relationTo: 'media',
+            },
+            {
+              name: 'link',
+              label: 'Link Produk (Opsional)',
+              type: 'text',
             },
           ],
         },
