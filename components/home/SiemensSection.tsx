@@ -171,7 +171,6 @@ export default function SiemensSection({
             <p className="text-white font-bold text-lg leading-tight">
               Lihat Semua Produk
             </p>
-            <p className="text-white/70 text-xs mt-2">{viewAllCount || "500+"} item tersedia</p>
           </Link>
         </div>
       </div>

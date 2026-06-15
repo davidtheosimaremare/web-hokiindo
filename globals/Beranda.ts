@@ -217,12 +217,6 @@ export const Beranda: GlobalConfig = {
           type: 'text',
           defaultValue: '/products/siemens-protection',
         },
-        {
-          name: 'proteksiViewAllCount',
-          label: 'Proteksi - Jumlah Item Lihat Semua',
-          type: 'text',
-          defaultValue: '500+',
-        },
         // Kontrol Sub-section
         {
           name: 'kontrolHeading',
@@ -290,12 +284,6 @@ export const Beranda: GlobalConfig = {
           label: 'Kontrol - Link Lihat Semua Produk',
           type: 'text',
           defaultValue: '/products/siemens-control',
-        },
-        {
-          name: 'kontrolViewAllCount',
-          label: 'Kontrol - Jumlah Item Lihat Semua',
-          type: 'text',
-          defaultValue: '300+',
         },
       ],
     },
