@@ -2,6 +2,15 @@ import { withPayload } from '@payloadcms/next/withPayload';
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        destination: 'https://shop.hokiindo.co.id',
+        permanent: false,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {
